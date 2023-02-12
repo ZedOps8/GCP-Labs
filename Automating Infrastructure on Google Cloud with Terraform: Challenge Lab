@@ -111,3 +111,14 @@ terraform plan
 terraform apply
 
 Verify the task
+
+-------------------------------------------------------------------------------TASK 3 --------------------------------------------------------------------
+
+Add the following code to the modules/storage/storage.tf file, Make sure to edit the Bucket name provided under lab instruction 
+
+resource "google_storage_bucket" "storage-bucket" {
+name = "<bucket-name>"
+location = "US"
+force_destroy = true
+uniform_bucket_level_access = true
+}
