@@ -122,3 +122,53 @@ location = "US"
 force_destroy = true
 uniform_bucket_level_access = true
 }
+\\\\\\\\\\\\\
+
+
+Modify and update infrastructure
+
+1. Navigate to modules/instances/instance.tf. Replace the entire contents of the file with the
+following, replacing tf-instance-3 with the dynamic variable:
+
+resource "google_compute_instance" "tf-instance-1" {
+name = "tf-instance-1"
+machine_type = "n1-standard-2"
+zone = 
+allow_stopping_for_update = true
+boot_disk {
+initialize_params {
+image = "debian-cloud/debian-10"
+}
+}
+network_interface {
+network = "default"
+}
+}
+resource "google_compute_instance" "tf-instance-2" {
+name = "tf-instance-2"
+machine_type = "n1-standard-2"
+zone =  “<Replace with Zone>”
+allow_stopping_for_update = true
+boot_disk {
+initialize_params {
+image = "debian-cloud/debian-10"
+}
+}
+network_interface {
+network = "default"
+}
+}
+resource "google_compute_instance" "tf-instance-3" {
+name = "<replace with dynamic variable name>"
+machine_type = "n1-standard-2"
+zone =  “<Replace with Zone>”
+allow_stopping_for_update = true
+boot_disk {
+initialize_params {
+image = "debian-cloud/debian-10"
+}
+}
+network_interface {
+network = "default"
+}
+}
